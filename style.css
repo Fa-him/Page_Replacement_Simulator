@@ -1,0 +1,180 @@
+/* General styling */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(270deg, #1a2a6c, #b21f1f, #fdbb2d, #1a2a6c);
+  background-size: 800% 800%;
+  animation: animatedBg 20s ease infinite;
+  color: #ffffff;
+  margin: 0;
+  padding: 40px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Rainbow gradient text with animation */
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 36px;
+  background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet);
+  background-size: 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text; /* for Firefox */
+  color: transparent; /* fallback */
+  animation: rainbowText 8s linear infinite;
+  text-shadow: 0 0 5px rgba(255,255,255,0.1);
+}
+
+/* Form styling */
+form {
+  background: rgba(255, 255, 255, 0.04);
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 500px;
+  margin: 0 auto;
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.1);
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  color: #e0f7fa;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  background: #1c1c1c;
+  color: #fff;
+}
+
+button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  background: #00ffe7;
+  color: #000;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #00bfa5;
+  color: white;
+}
+
+/* Output styling */
+#outputSection {
+  margin-top: 40px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+#outputSection h2 {
+  color: #00e5ff;
+  border-bottom: 1px solid #00e5ff33;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+/* Table styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  overflow: hidden;
+  animation: slideUp 0.7s ease-in-out;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #00e5ff22;
+  text-align: center;
+  font-size: 16px;
+  transition: background 0.3s ease-in-out;
+}
+
+th {
+  background-color: #00e5ff0c;
+  color: #00ffe7;
+}
+
+tr:nth-child(even) td {
+  background-color: rgba(255, 255, 255, 0.01);
+}
+
+tr:hover td {
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+/* Instead of td:contains, use classes in your HTML */
+/* For example: <td class="hit">Hit</td> and <td class="miss">Miss</td> */
+
+td.hit {
+  background-color: #004d40 !important;
+  color: #00ffcc;
+  font-weight: bold;
+  animation: pulseHit 0.4s ease-in-out;
+}
+
+td.miss {
+  background-color: #8b1a1a !important;
+  color: #ff8a80;
+  font-weight: bold;
+  animation: pulseMiss 0.4s ease-in-out;
+}
+
+/* Footer styling */
+footer {
+  margin-top: 60px;
+  text-align: center;
+  color: #00ffe7;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(40px); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes pulseHit {
+  0% { box-shadow: 0 0 0 rgba(0,255,204,0.2); }
+  50% { box-shadow: 0 0 6px rgba(0,255,204,0.4); }
+  100% { box-shadow: 0 0 0 rgba(0,255,204,0.2); }
+}
+
+@keyframes pulseMiss {
+  0% { box-shadow: 0 0 0 rgba(255,100,100,0.2); }
+  50% { box-shadow: 0 0 6px rgba(255,100,100,0.3); }
+  100% { box-shadow: 0 0 0 rgba(255,100,100,0.2); }
+}
+
+@keyframes animatedBg {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes rainbowText {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}

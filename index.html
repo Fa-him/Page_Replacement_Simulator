@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Page Replacement Simulator</title>
+  <link id="theme-link" rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <style>
+    #themeToggle {
+      position: fixed;
+      top: 30px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: #ffe;
+      transition: transform 0.2s;
+      z-index: 1000; 
+    }
+    #themeToggle:hover {
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+    
+  <button id="themeToggle" title="Toggle Theme">🌙</button>
+  <br>
+  <br>
+
+  <h1>Page Replacement Simulator</h1>
+
+  <form id="inputForm">
+    <label for="referenceString">Reference String (comma-separated):</label>
+    <input type="text" id="referenceString" placeholder="e.g. 7 0 1 2 0 3 0 4" required />
+
+    <label for="frameSize">Frame Size:</label>
+    <input type="number" id="frameSize" min="1" placeholder="e.g. 3" required />
+
+    <button type="submit">Simulate</button>
+  </form>
+
+  <div id="outputSection"></div>
+
+  <footer style="text-align:center; padding:10px; margin-top:40px; color:#666; font-style:italic;">
+    Made with ❤️ by <a href="https://www.linkedin.com/in/fahim555/" target="_blank" style="color:#00ffe7; text-decoration:none;">Fahim</a> 😉😛
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    const toggleBtn = document.getElementById("themeToggle");
+    const themeLink = document.getElementById("theme-link");
+
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      themeLink.href = "style2.css";
+      toggleBtn.textContent = "☀️"; 
+    } else {
+      themeLink.href = "style.css";
+      toggleBtn.textContent = "🌙"; 
+    }
+
+    toggleBtn.addEventListener("click", () => {
+      const isLight = themeLink.getAttribute("href") === "style.css";
+
+      if (isLight) {
+        themeLink.href = "style2.css";
+        toggleBtn.textContent = "☀️"; 
+        localStorage.setItem("theme", "dark");
+      } else {
+        themeLink.href = "style.css";
+        toggleBtn.textContent = "🌙";
+        localStorage.setItem("theme", "light");
+      }
+    });
+  </script>
+</body>
+</html>
